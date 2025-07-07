@@ -1,3 +1,9 @@
+/*
+The executor is essentially a queue of futures that are ready to be polled.
+The spawner is responsible for sending tasks to the executor's ready queue.
+The executor runs perpetually, polling tasks from the ready queue and allowing them to make progress (by calling their poll method).
+*/
+
 use std::{sync::{mpsc, Arc, Mutex}, task::Context};
 
 use crate::task::Task;
@@ -11,7 +17,6 @@ impl Executor {
         while let Ok(task) = self.ready_queue.recv() {
             let mut future = task.future.lock().unwrap();
 
-            // make a context (explained later)
             let waker = Arc::clone(&task).waker();
             let mut context = Context::from_waker(&waker);
 

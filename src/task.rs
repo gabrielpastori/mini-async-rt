@@ -1,3 +1,12 @@
+/*
+A task represents a unit of work that can be executed by the executor.
+It contains a future that is being executed and a spawner that is used to send the task
+to the executor's ready queue.
+A waker is a handle that allows a task to be woken up when it is ready to make progress.
+It is used by the executor to notify tasks that they can be polled again.
+This handle encapsulates the RawWaker, which define the executor specific behavior for waking up tasks.
+*/
+
 use std::{future::Future, pin::Pin, sync::{Arc, Mutex}, task::{Waker, RawWaker, RawWakerVTable}};
 
 use crate::executor::Spawner;

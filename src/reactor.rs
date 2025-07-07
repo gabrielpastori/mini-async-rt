@@ -1,3 +1,11 @@
+/*
+The waker is a handle that allows a task to be woken up when it is ready to make progress.
+The reactor is the core of the asynchronous runtime. Its job is to wait for IO events and wake up the code that's waiting for those events.
+Registry: This come from mio, and lets the Reactor register interest in specific IO events.
+statuses: tracks for each registed event who is waiting/if the event has already happened.
+A token is a unique identifier for each registered interest in the reactor.
+When an event happens, it records that in the statuses map and wakes the waiting tasks.
+*/
 use mio::{Events, Registry, Token};
 use std::{collections::{hash_map::Entry, HashMap}, sync::{Mutex, OnceLock}, task::{Context, Poll, Waker}};
 
