@@ -4,6 +4,8 @@ A minimal async runtime and reactor in Rust, built by following [this excellent 
 
 ## 📝 How This Works (Big Picture)
 
+![image](https://github.com/user-attachments/assets/61ecc5cc-6dd6-4ca3-87e6-5f7671c614e8)
+
 ```text
 ┌──────────────────────────────────────────────┐
 │ 1. main()                                    │
