@@ -1,5 +1,7 @@
 A minimal async runtime and reactor in Rust, built by following [this excellent tutorial from Tweedegolf](https://tweedegolf.nl/en/blog/114/building-an-async-runtime-with-mio).
 
+Runs a basic UDP echo server, demonstrating how to manage async tasks and socket events manually, from first principles (Rust + mio).
+
 ---
 
 ## 📝 How This Works (Big Picture)
